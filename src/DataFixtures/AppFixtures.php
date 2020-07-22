@@ -9,8 +9,15 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        $faker = Factory::create();
+
+        for ($i = 0; $i < 10; $i++) {
+            $post= new Post();
+            $post->setTitle($faker->word);
+            $post->setContent($faker->sentence(6, true));
+            $post->setAuthor($faker->firstName);
+            $manager->persist($post);
+        }
 
         $manager->flush();
     }
