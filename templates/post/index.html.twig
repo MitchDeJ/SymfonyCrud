@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <h1>
+        Blog posts.
+    </h1>
+    <p>View, edit or delete posts.</p>
+    <button type="button" class="btn btn-success">New post</button>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">Author</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        {% for p in posts %}
+            <tr>
+                <td>{{ p.title }}</td>
+                <td>{{ p.content }}</td>
+                <td>{{ p.author }}</td>
+                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
